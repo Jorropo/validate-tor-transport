@@ -20,7 +20,7 @@ var (
 
 // Do Perform the dial, it returns a message to print to the user.
 // If debug != nil debug will be used as debug chan else it will be ignored.
-func Do(debug io.Writer) string {
+func Do() string {
 	runLock.Lock()
 	if running {
 		runLock.Unlock()
