@@ -3,13 +3,12 @@ package tor
 import (
 	"context"
 	"fmt"
-	"io"
 	"io/ioutil"
 	"net/http"
 	"sync"
 
+	"berty.tech/go-libtor"
 	"github.com/cretz/bine/tor"
-	"github.com/ipsn/go-libtor"
 )
 
 var (
@@ -39,7 +38,7 @@ func Do() string {
 		return fmt.Sprintf("Can't dial golang : %q", err)
 	}
 	// Starting tor node
-	t, err := tor.Start(nil, &tor.StartConf{ProcessCreator: libtor.Creator, DebugWriter: debug})
+	t, err := tor.Start(nil, &tor.StartConf{ProcessCreator: libtor.Creator})
 	if err != nil {
 		return fmt.Sprintf("Failed to start tor : %q", err)
 	}
