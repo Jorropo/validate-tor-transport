@@ -38,7 +38,7 @@ func Do() string {
 		return fmt.Sprintf("Can't dial golang : %q", err)
 	}
 	// Starting tor node
-	t, err := tor.Start(nil, &tor.StartConf{ProcessCreator: libtor.Creator})
+	t, err := tor.Start(nil, &tor.StartConf{ProcessCreator: libtor.Creator, TempDataDirBase:getTempDir()})
 	if err != nil {
 		return fmt.Sprintf("Failed to start tor : %q", err)
 	}
